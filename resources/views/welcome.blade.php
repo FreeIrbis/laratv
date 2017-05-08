@@ -76,7 +76,9 @@
                     @endif
                 </div>
             @endif
-
+            <div>
+                HU IS SOS?!
+            </div>
             <div class="content">
                 <div class="title m-b-md">
                     Laravelss3335556666666666666
