@@ -23,7 +23,7 @@ Route::group(['prefix'=>'adminzone'], function()
 {
     Route::get('/', function()
     {
-        return 'Админка главная!';
+        return view("admin.index");
     });
-    //Route::resource('articles','ArticlesController');
+    Route::resource('channels','ChannelsController');
 });
