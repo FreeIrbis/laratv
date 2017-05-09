@@ -13,16 +13,28 @@ class Channels extends Migration
      */
     public function up()
     {
-        Schema::create('channels', function (Blueprint $table) {
+        Schema::create('channels', function ($table) {
+
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->string('uri');
             $table->string('name_channel');
             $table->string('description_channel');
+            $table->integer('category')->unsigned();
             $table->string('stream');
             $table->string('tv_channel');
-            $table->integer('category');
+            $table->timestamps();
         });
-    }
+
+        Schema::table('channels', function($table){
+
+            $table->foreign('category')->references('id')->on('categories');
+        });
+
+        }
+
+
 
     /**
      * Reverse the migrations.
