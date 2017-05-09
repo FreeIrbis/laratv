@@ -11,40 +11,19 @@ use Illuminate\Support\Facades\DB;
 class TvController extends Controller
 {
 
+
     public function index()
-    {
-        /*
-        DB::table('categories')->insert(
-            ['name' => 'Русськи письки']
-        );
-        DB::table('categories')->insert(
-            ['name' => 'Черни письки']
-        );
+    {   /*Categories::initCategory('Члены зелёные');
+        Categories::initCategory('Хуи дрочёные');
+        Channels::initChannel('tnt',
+            'ТНТ',
+            'Трэшер',
+            '1',
+            'http://178.162.205.110:8081/liveg/tnt.stream/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9NS85LzIwMTcgODo1ODoyMyBBTSZoYXNoX3ZhbHVlPVdKTllyT3ZUVkNOTzJrdnBTcTlrWnc9PSZ2YWxpZG1pbnV0ZXM9MjAw or http://178.162.205.107:8081/liveg/tntb.stream/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9NS85LzIwMTcgODo1ODoyMyBBTSZoYXNoX3ZhbHVlPVdKTllyT3ZUVkNOTzJrdnBTcTlrWnc9PSZ2YWxpZG1pbnV0ZXM9MjAw',
+            'ZALUP KA');*/
 
-        DB::table('channels')->insert(
-            [
-                'uri' => '2-plus-2',
-                'name_channel' => '2+2',
-                'description_channel' => 'Говно ебаное',
-                'category' => '1',
-                'stream' => 'говноссылка',
-                'tv_channel' => 'ссылкаговно'
-            ]
-        );
-
-        DB::table('channels')->insert(
-            [
-                'uri' => 'stb',
-                'name_channel' => 'СТБ',
-                'description_channel' => 'Говно ебаное',
-                'category' => '2',
-                'stream' => 'говноссылка',
-                'tv_channel' => 'ссылкаговно'
-            ]
-        );
-         */
-
-        return view("tv.index");
+        Categories::delCategorybyId(1);
+         return view("tv.index");
     }
 
     public function show($tvUri)

@@ -22,7 +22,7 @@ class Channels extends Migration
             $table->string('name_channel');
             $table->string('description_channel');
             $table->integer('category')->unsigned();
-            $table->string('stream');
+            $table->text('stream',450);
             $table->string('tv_channel');
             $table->timestamps();
         });
