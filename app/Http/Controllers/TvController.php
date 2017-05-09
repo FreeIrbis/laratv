@@ -10,7 +10,7 @@ class TvController extends Controller
 
     public function index()
     {
-        return "index!";
+        return view("welcome");
     }
 
     public function show($tvUri)

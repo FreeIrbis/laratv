@@ -14,11 +14,12 @@ class Channel extends Migration
     public function up()
     {
         Schema::create('channels', function (Blueprint $table) {
-            $table->increments('id');
+            $table->primary('id');
             $table->string('uri');
             $table->string('name_channel');
             $table->string('description_channel');
-            $table->integer('category');
+            $table->integer('category')->unsigned();
+            $table->foreign('category')->references('id')->on('categories');
             $table->string('stream');
             $table->string('tv_channel');
         });
