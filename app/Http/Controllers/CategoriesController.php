@@ -46,3 +46,4 @@ class CategoriesController extends Controller
         return back()->with('message','Категория добавлена');
     }
 }
+
