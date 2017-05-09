@@ -10,18 +10,28 @@ class TvController extends Controller
 
     public function index()
     {
-        return view("welcome");
+        return view("tv.index");
     }
 
     public function show($tvUri)
     {
-        //$channel=Channel::where('uri','=',$tvUri);
+        // выборка записей из таблицы channel
+        // $channel=Channel::where('uri','=',$tvUri);
 
-        switch($tvUri)
+        if($tvUri == '2-plus-2')
         {
-
-            case '2-plus-2': return view('tv.2plus2'); break;
-            default: return App::abort(404);;
+            $data['stream'] = '192.168.0.1';
+            $data['tv'] = 'tv.yandex.ru';
+            $data['name'] = '2+2';
+            return view('tv.channel', $data);
+        } else if($tvUri == 'stb')
+        {
+            $data['stream'] = '240.2.0.127';
+            $data['tv'] = 'tv.yandex.ru';
+            $data['name'] = 'СТБ';
+            return view('tv.channel', $data);
+        } else {
+            return App::abort(404);
         }
     }
 

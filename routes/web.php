@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', 'TvController@index');
+Route::get('/', function()
+{
+    return view("index");
+});
 
+Route::get('/tv','TvController@index');
 Route::get('/tv/{tv}','TvController@show');
 
 Route::group(['prefix'=>'adminzone'], function()
