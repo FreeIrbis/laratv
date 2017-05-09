@@ -1,9 +1,10 @@
 @extends('admin.default')
 
+@section("title", "Каналы - Панель администратора")
 
 @section('content')
     <blockquote>
-        <p>Канал</p>
+        <p>Каналы</p>
     </blockquote>
 
     <table class="table table-striped">

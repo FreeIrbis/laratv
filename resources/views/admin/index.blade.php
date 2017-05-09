@@ -1,5 +1,7 @@
 @extends('admin.default')
 
+@section("title", "Панель администратора")
+
 @section('content')
     Каналы
     <ul>

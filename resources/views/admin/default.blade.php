@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Название страницы</title>
+    <title>@yield('title')</title>
     <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet">
     <style type="text/css">
         body {
@@ -32,15 +32,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Laravel TV</a>
+            <a class="brand" href="{{url('/')}}">Laravel TV</a>
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
                     Logged in as Admin
                 </p>
                 <ul class="nav">
-                    <li class="active"><a href="{{url('/adminzone')}}">Главная</a></li>
-                    <li><a href="{{url('/adminzone/channels')}}">Каналы</a></li>
-                    <li><a href="{{url('/adminzone/categories')}}">Категории</a></li>
+                    <li class="{{ Request::is('adminzone') ? 'active' : '' }}"><a href="{{url('/adminzone')}}">Главная</a></li>
+                    <li class="{{ Request::is('adminzone/channels') ? 'active' : '' }}"><a href="{{url('/adminzone/channels')}}">Каналы</a></li>
+                    <li class="{{ Request::is('adminzone/categories') ? 'active' : '' }}"><a href="{{url('/adminzone/categories')}}">Категории</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

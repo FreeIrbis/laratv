@@ -1,5 +1,7 @@
 @extends('admin.default')
 
+@section("title", "Создать новый канал - Панель администратора")
+
 @section('content')
         <blockquote>
                 <p>Добавить новый канал</p>
@@ -25,23 +27,20 @@
                 <label class="control-label" for="inputDes">Описание канала</label>
                 <div class="controls">
                         <textarea id="inputDes" name="description_channel"></textarea>
-
                 </div>
         </div>
 
         <div class="control-group info">
                 <label class="control-label" for="inputStream">Ссылка на стрим</label>
                 <div class="controls">
-                        <textarea id="inputStream" name="stream"></textarea>
-
+                        <input type="text" id="inputStream" name="stream" />
                 </div>
         </div>
 
         <div class="control-group info">
                 <label class="control-label" for="inputTv">Ссылка на программу</label>
                 <div class="controls">
-                        <textarea id="inputTv" name="tv_channel"></textarea>
-
+                        <input type="text" id="inputTv" name="tv_channel" />
                 </div>
         </div>
 
@@ -57,7 +56,7 @@
         </div>
 
         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
-        <input type="submit" value="Сохранить" class="btn btn-primary">
+        <input type="submit" value="Добавить" class="btn btn-primary">
         @if(Session::has('message'))
         {{Session::get('message')}}
         @endif

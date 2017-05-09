@@ -6,14 +6,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#">Laravel TV</a>
+            <a class="brand" href="{{url('/')}}">Laravel TV</a>
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
                     Logged in as <a href="#" class="navbar-link">Username</a>
                 </p>
                 <ul class="nav">
-                    <li class="active"><a href="{{url('/')}}">Главная</a></li>
-                    <li><a href="{{url('tv')}}">ТВ</a></li>
+                    <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{url('/')}}">Главная</a></li>
+                    <li class="{{ Request::is('tv') ? 'active' : '' }}"><a href="{{url('tv')}}">ТВ</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

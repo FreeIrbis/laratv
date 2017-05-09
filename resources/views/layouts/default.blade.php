@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Название страницы</title>
+    <title>@yield('title')</title>
     <link href="{{ url('css/bootstrap.css') }}" rel="stylesheet">
     <style type="text/css">
         body {
