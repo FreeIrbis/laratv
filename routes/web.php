@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'TvController@index');
+
+Route::get('/tv/{tv}','TvController@show');
+
+Route::group(['prefix'=>'adminzone'], function()
+{
+    Route::get('/', function()
+    {
+        return 'Админка главная!';
+    });
+    //Route::resource('articles','ArticlesController');
 });
