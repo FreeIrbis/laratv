@@ -28,3 +28,6 @@ Route::group(['prefix'=>'adminzone'], function()
     Route::resource('channels','ChannelsController');
     Route::resource('categories','CategoriesController');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

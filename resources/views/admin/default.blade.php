@@ -35,7 +35,7 @@
             <a class="brand" href="{{url('/')}}">Laravel TV</a>
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
-                    Logged in as Admin
+
                 </p>
                 <ul class="nav">
                     <li class="{{ Request::is('adminzone') ? 'active' : '' }}"><a href="{{url('/adminzone')}}">Главная</a></li>
