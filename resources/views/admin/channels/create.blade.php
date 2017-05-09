@@ -9,7 +9,7 @@ Uri канала:
 <input type="text" name="stream" /><br>
 Ссылка на программу:
 <input type="text" name="tv_channel" /><br>
-Категория:
+Категория:<br>
 <select name="category">
     @foreach($categories as $category)
         <option value="{{$category->id}}">{{$category->name}}</option>

@@ -26,4 +26,5 @@ Route::group(['prefix'=>'adminzone'], function()
         return view("admin.index");
     });
     Route::resource('channels','ChannelsController');
+    Route::resource('categories','CategoriesController');
 });
