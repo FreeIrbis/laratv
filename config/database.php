@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => 'mysql.hostinger.ru',
+            'host' => 'localhost',
             'port' => '3306',
-            'database' => 'u771079609_tv',
-            'username' => 'u771079609_root',
-            'password' => 'masturbator2000',
+            'database' => 'laratvdb',
+            'username' => 'root',
+            'password' => '',
             'unix_socket' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
