@@ -35,11 +35,12 @@
             <a class="brand" href="#">Laravel TV</a>
             <div class="nav-collapse collapse">
                 <p class="navbar-text pull-right">
-                    Logged in as <a href="#" class="navbar-link">Username</a>
+                    Logged in as Admin
                 </p>
                 <ul class="nav">
-                    <li class="active"><a href="{{url('/')}}">Главная</a></li>
-                    <li><a href="{{url('tv')}}">ТВ</a></li>
+                    <li class="active"><a href="{{url('/adminzone')}}">Главная</a></li>
+                    <li><a href="{{url('/adminzone/channels')}}">Каналы</a></li>
+                    <li><a href="{{url('/adminzone/categories')}}">Категории</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

@@ -1,24 +1,77 @@
-<form method="POST" action="{{action('ChannelsController@store')}}"/>
-Название канала:
-<input type="text" name="name_channel" /><br>
-Uri канала:
-<input type="text" name="uri" /><br>
-Описание канала:
-<input type="text" name="description_channel" /><br>
-Ссылка на стрим:
-<input type="text" name="stream" /><br>
-Ссылка на программу:
-<input type="text" name="tv_channel" /><br>
-Категория:<br>
-<select name="category">
-    @foreach($categories as $category)
-        <option value="{{$category->id}}">{{$category->name}}</option>
-    @endforeach
-</select><br>
+@extends('admin.default')
 
-<input type="hidden" name="_token" value="{{csrf_token()}}"/>
-<input type="submit" value="Сохранить">
-@if(Session::has('message'))
-{{Session::get('message')}}
-@endif
-</form>
+@section('content')
+        <blockquote>
+                <p>Добавить новый канал</p>
+        </blockquote>
+
+        <form method="POST" action="{{action('ChannelsController@store')}}"/>
+
+        <div class="control-group info">
+                <label class="control-label" for="inputName">Название канала</label>
+                <div class="controls">
+                        <input type="text" id="inputName" name="name_channel">
+                </div>
+        </div>
+
+        <div class="control-group info">
+                <label class="control-label" for="inputUri">URI канала</label>
+                <div class="controls">
+                        <input type="text" id="inputUri" name="uri">
+                </div>
+        </div>
+
+        <div class="control-group info">
+                <label class="control-label" for="inputDes">Описание канала</label>
+                <div class="controls">
+                        <textarea id="inputDes" name="description_channel"></textarea>
+
+                </div>
+        </div>
+
+        <div class="control-group info">
+                <label class="control-label" for="inputStream">Ссылка на стрим</label>
+                <div class="controls">
+                        <textarea id="inputStream" name="stream"></textarea>
+
+                </div>
+        </div>
+
+        <div class="control-group info">
+                <label class="control-label" for="inputTv">Ссылка на программу</label>
+                <div class="controls">
+                        <textarea id="inputTv" name="tv_channel"></textarea>
+
+                </div>
+        </div>
+
+        <div class="control-group info">
+                <label class="control-label" for="inputCat">Категория</label>
+                <div class="controls">
+                        <select name="category" id="inputCat">
+                                @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                        </select>
+                </div>
+        </div>
+
+        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+        <input type="submit" value="Сохранить" class="btn btn-primary">
+        @if(Session::has('message'))
+        {{Session::get('message')}}
+        @endif
+        </form>
+ @endsection
+
+@section('sidebar')
+        <div class="span3">
+                <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                                <li class="nav-header">Каналы</li>
+                                <li><a href="{{url('adminzone/channels')}}">Каналы</a></li>
+                                <li class="active"><a href="{{url('adminzone/channels/create')}}">Добавить новый</a></li>
+                        </ul>
+                </div><!--/.well -->
+        </div><!--/span-->
+@endsection
