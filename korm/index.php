@@ -10,8 +10,6 @@ foreach($html->find('li.channel-schedule__event') as $element) {
   	echo $time . " - " . $text . '<br>';
 }
 
-
-
 ?>
 
   
