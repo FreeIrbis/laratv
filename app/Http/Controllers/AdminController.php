@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/adminzone';
 
     public function __construct()
     {
@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $this->auth->logout();
         Session::flush();
-        return redirect('/home');
+        return redirect('/login');
     }
 
     public function index()

@@ -43,6 +43,6 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         Categories::create($request->all());
-        return back()->with('message','Категория добавлена');
+        return back()->with('message', 'Категория добавлена');
     }
 }

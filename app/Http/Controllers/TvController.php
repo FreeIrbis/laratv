@@ -10,22 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class TvController extends Controller
 {
-
-
     public function index()
     {
-         return view("tv.index");
+         $channels = Channels::all();
+         return view("tv.index", ['channels' => $channels]);
     }
 
     public function show($tvUri)
     {
-        $channel = Channels::where('uri','=',$tvUri)->get();
+        $channel = Channels::where('uri', '=', $tvUri)->get();
 
-        if(isset($channel[0]))
-        {
-            $category = Categories::where('id','=',$channel[0]->category)->get();
+        if (isset($channel[0])) {
+            $category = Categories::where('id', '=', $channel[0]->category)->get();
 
-            $data['stream'] = $channel[0]->stream;
+            $data['id'] = $channel[0]->id;
+            $data['description'] = $channel[0]->description_channel;
             $data['tv'] = $channel[0]->tv_channel;
             $data['name'] = $channel[0]->name_channel;
             $data['category'] = $category[0]->name;

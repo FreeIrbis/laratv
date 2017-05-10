@@ -3,6 +3,7 @@
 @section("title", "Панель администратора")
 
 @section('content')
+
     Каналы
     <ul>
         <li><a href="adminzone/channels">Все</a></li>

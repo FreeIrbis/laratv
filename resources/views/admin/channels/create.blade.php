@@ -33,14 +33,14 @@
         <div class="control-group info">
                 <label class="control-label" for="inputStream">Ссылка на стрим</label>
                 <div class="controls">
-                        <input type="text" id="inputStream" name="stream" />
+                        <input type="text" id="inputStream" name="stream" placeholder="659/1/951b6bac1e0d758f149839b8e346e4fc" />
                 </div>
         </div>
 
         <div class="control-group info">
                 <label class="control-label" for="inputTv">Ссылка на программу</label>
                 <div class="controls">
-                        <input type="text" id="inputTv" name="tv_channel" />
+                        <input type="text" id="inputTv" name="tv_channel" placeholder="123/channels/4567" />
                 </div>
         </div>
 

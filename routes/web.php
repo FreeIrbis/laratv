@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-    return view("index");
+    return view('index');
 });
 
 Route::get('/tv','TvController@index');
@@ -21,13 +21,9 @@ Route::get('/tv/{tv}','TvController@show');
 
 Route::group(['prefix'=>'adminzone'], function()
 {
-    Route::get('/', function()
-    {
-        return view("admin.index");
-    });
+    Route::get('/', 'AdminController@index');
     Route::resource('channels','ChannelsController');
     Route::resource('categories','CategoriesController');
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
