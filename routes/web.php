@@ -16,12 +16,13 @@ Route::get('/', function()
     return view('index');
 });
 
-Route::get('/tv','TvController@index');
-Route::get('/tv/{tv}','TvController@show');
+Route::get('tv','TvController@index');
+Route::get('tv/{tv}','TvController@show');
 
 Route::group(['prefix'=>'adminzone'], function()
 {
     Route::get('/', 'AdminController@index');
+    Route::get('/logout', 'AdminController@getLogout');
     Route::resource('channels','ChannelsController');
     Route::resource('categories','CategoriesController');
 });

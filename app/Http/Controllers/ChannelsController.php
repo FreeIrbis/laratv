@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ChannelsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $channels = Channels::all();
@@ -58,7 +63,6 @@ class ChannelsController extends Controller
         $tv = str_replace('uppodEvent(\'video-player\', \'init\');', ' ', $tv);
         $tv = str_replace('<link rel="stylesheet" type="text/css" href="/css/popup/styles.css"/>', ' ', $tv);
         $tv = str_replace('checkStream(normalTimeout);', ' ', $tv);
-
 
         return $tv;
     }

@@ -4,6 +4,8 @@
 
 @section('content')
 
+   <a href="{{url('adminzone/logout')}}">Выйти</a>
+
     Каналы
     <ul>
         <li><a href="adminzone/channels">Все</a></li>

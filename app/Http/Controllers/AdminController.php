@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -25,7 +27,7 @@ class AdminController extends Controller
      */
     public function getLogout()
     {
-        $this->auth->logout();
+        Auth::logout();
         Session::flush();
         return redirect('/login');
     }
