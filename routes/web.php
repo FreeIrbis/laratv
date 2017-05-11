@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function()
 {
     return view('index');
@@ -18,11 +7,20 @@ Route::get('/', function()
 
 Route::get('tv','TvController@index');
 Route::get('tv/{tv}','TvController@show');
+Route::get('tv/cat/{cat}','TvController@catTvChannel');
 
-Route::group(['prefix'=>'adminzone'], function()
+Route::group(['prefix'=>'adminzone', 'middleware' => 'auth'], function()
 {
-    Route::get('/', 'AdminController@index');
-    Route::get('/logout', 'AdminController@getLogout');
+    Route::get('/', function()
+    {
+        return view('admin.index');
+    });
+    Route::get('/logout', function()
+    {
+        \Illuminate\Support\Facades\Auth::logout();
+        \Illuminate\Support\Facades\Session::flush();
+        return redirect(url('login'));
+    });
     Route::resource('channels','ChannelsController');
     Route::resource('categories','CategoriesController');
 });

@@ -32,7 +32,7 @@
         <div class="span9">
             @yield('content')
         </div><!--/span-->
-        @include('layouts.sidebar')
+        @yield('sidebar')
     </div><!--/row-->
 
     <hr>

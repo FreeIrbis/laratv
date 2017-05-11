@@ -5,14 +5,10 @@ namespace App\Http\Controllers;
 use App\Categories;
 use App\Channels;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ChannelsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
         $channels = Channels::all();
@@ -51,19 +47,5 @@ class ChannelsController extends Controller
     {
         Channels::create($request->all());
         return back()->with('message','');
-    }
-
-    public function show($id)
-    {
-        $stream = Channels::where('id','=',$id)->get()[0]->stream;
-        $tv = file_get_contents($stream);
-        $tv = str_replace('/swf/uppod161216.swf', 'https://www.glaz.tv/swf/uppod161216.swf', $tv);
-        $tv = str_replace('top.location.href = location.href;', ' ', $tv);
-        $tv = str_replace('<script type="text/javascript" src="/js/main.js"></script>', ' ', $tv);
-        $tv = str_replace('uppodEvent(\'video-player\', \'init\');', ' ', $tv);
-        $tv = str_replace('<link rel="stylesheet" type="text/css" href="/css/popup/styles.css"/>', ' ', $tv);
-        $tv = str_replace('checkStream(normalTimeout);', ' ', $tv);
-
-        return $tv;
     }
 }
